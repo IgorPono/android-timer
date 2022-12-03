@@ -9,7 +9,7 @@ public class DefaultTimeModel implements TimeModel {
 
     private int runningTime = 0;
 
-    private int lapTime = -1;
+    //private int lapTime = -1;
 
     @Override
     public void resetRuntime() {
@@ -18,15 +18,16 @@ public class DefaultTimeModel implements TimeModel {
 
     @Override
     public void incRuntime() {
-        runningTime = (runningTime + SEC_PER_TICK) % SEC_PER_HOUR;
+        runningTime = (runningTime + SEC_PER_TICK);
     }
 
+    public void decRuntime() { runningTime = (runningTime - SEC_PER_TICK);}
     @Override
     public int getRuntime() {
         return runningTime;
     }
 
-    @Override
+    /*@Override
     public void setLaptime() {
         lapTime = runningTime;
     }
@@ -34,5 +35,5 @@ public class DefaultTimeModel implements TimeModel {
     @Override
     public int getLaptime() {
         return lapTime;
-    }
+    }*/
 }

@@ -64,7 +64,7 @@ public abstract class AbstractStopwatchStateMachineTest {
      */
     @Test
     public void testPreconditions() {
-        assertEquals(R.string.STOPPED, dependency.getState());
+        assertEquals(R.string.ALARM, dependency.getState());
     }
 
     /**
@@ -90,7 +90,7 @@ public abstract class AbstractStopwatchStateMachineTest {
      * @throws Throwable
      */
     @Test
-    public void testScenarioRunLapReset() {
+    /*public void testScenarioRunLapReset() {
         assertTimeEquals(0);
         assertFalse(dependency.isStarted());
         // directly invoke the button press event handler methods
@@ -99,7 +99,7 @@ public abstract class AbstractStopwatchStateMachineTest {
         assertTrue(dependency.isStarted());
         onTickRepeat(5);
         assertTimeEquals(5);
-        model.onLapReset();
+        //model.onLapReset();
         assertEquals(R.string.LAP_RUNNING, dependency.getState());
         assertTrue(dependency.isStarted());
         onTickRepeat(4);
@@ -108,15 +108,15 @@ public abstract class AbstractStopwatchStateMachineTest {
         assertEquals(R.string.LAP_STOPPED, dependency.getState());
         assertFalse(dependency.isStarted());
         assertTimeEquals(5);
-        model.onLapReset();
+        //model.onLapReset();
         assertEquals(R.string.STOPPED, dependency.getState());
         assertFalse(dependency.isStarted());
         assertTimeEquals(9);
-        model.onLapReset();
+        //model.onLapReset();
         assertEquals(R.string.STOPPED, dependency.getState());
         assertFalse(dependency.isStarted());
         assertTimeEquals(0);
-    }
+    }*/
 
     /**
      * Sends the given number of tick events to the model.
@@ -199,12 +199,13 @@ class UnifiedMockDependency implements TimeModel, ClockModel, StopwatchModelList
         runningTime++;
     }
 
+    public void decRuntime(){runningTime--;}
     @Override
     public int getRuntime() {
         return runningTime;
     }
 
-    @Override
+   /* @Override
     public void setLaptime() {
         lapTime = runningTime;
     }
@@ -212,5 +213,5 @@ class UnifiedMockDependency implements TimeModel, ClockModel, StopwatchModelList
     @Override
     public int getLaptime() {
         return lapTime;
-    }
+    }*/
 }

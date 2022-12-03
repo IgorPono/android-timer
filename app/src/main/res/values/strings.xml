@@ -13,9 +13,9 @@
     <string name="colon">:</string>
 
     <!-- model state display names -->
-    <string name="STOPPED">Stopped</string>
-    <string name="RUNNING">Running</string>
-    <string name="LAP_RUNNING">Lap/Running</string>
-    <string name="LAP_STOPPED">Lap/Stopped</string>
+    <string name="ALARM">Alarm</string>
+    <string name="INCREMENTING">Incrementing</string>
+    <string name="COUNTDOWN">Counting down</string>
+    <string name="INITIAL">Initial </string>
 
 </resources>
