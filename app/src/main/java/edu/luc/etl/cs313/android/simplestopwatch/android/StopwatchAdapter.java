@@ -88,8 +88,13 @@ public class StopwatchAdapter extends Activity implements StopwatchModelListener
             final TextView stateName = findViewById(R.id.stateName);
             stateName.setText(getString(stateId));
         });
-        playDefaultNotification();
-
+//        System.out.println(stateId);
+//        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+//        2131034112
+        /** found stateId of AlarmState in Logcat, printing the stateId  **/
+        if (stateId == 2131034112) {
+            playDefaultNotification();
+        }
     }
     /** Plays the default notification sound. */
     protected void playDefaultNotification() {
