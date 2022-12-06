@@ -1,14 +1,25 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.media.AudioAttributes;
+import android.media.MediaPlayer;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import edu.luc.etl.cs313.android.simplestopwatch.R;
+import java.io.IOException;
 
-class AlarmState implements StopwatchState {
+import java.io.IOException;
+
+public class AlarmState implements StopwatchState {
 
     public AlarmState(final StopwatchSMStateView sm) {
         this.sm = sm;
     }
 
     private final StopwatchSMStateView sm;
+
 
     @Override
     public void onStartStop() {
