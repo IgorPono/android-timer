@@ -88,15 +88,17 @@ public class StopwatchAdapter extends Activity implements StopwatchModelListener
             final TextView stateName = findViewById(R.id.stateName);
             stateName.setText(getString(stateId));
         });
-//        System.out.println(stateId);
-//        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-//        2131034112
-        /** found stateId of AlarmState in Logcat, printing the stateId  **/
-        if (stateId == 2131034112) {
-            playDefaultNotification();
-        }
     }
-    /** Plays the default notification sound. */
+
+    // forward event listener methods to the model
+    public void onStartStop(final View view) {
+        model.onStartStop();
+    }
+
+    public void alarmSound(){
+        playDefaultNotification();
+    }
+
     protected void playDefaultNotification() {
         final Uri defaultRingtoneUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         final MediaPlayer mediaPlayer = new MediaPlayer();
@@ -115,10 +117,5 @@ public class StopwatchAdapter extends Activity implements StopwatchModelListener
             throw new RuntimeException(ex);
         }
     }
-    // forward event listener methods to the model
-    public void onStartStop(final View view) {
-        model.onStartStop();
-    }
-
 
 }

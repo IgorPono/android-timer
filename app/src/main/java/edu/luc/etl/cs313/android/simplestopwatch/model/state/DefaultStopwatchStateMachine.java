@@ -1,8 +1,16 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
+import android.media.AudioAttributes;
 import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchModelListener;
 import edu.luc.etl.cs313.android.simplestopwatch.model.clock.ClockModel;
 import edu.luc.etl.cs313.android.simplestopwatch.model.time.TimeModel;
+
+import android.net.Uri;
+import android.media.MediaPlayer;
+import android.media.RingtoneManager;
+import android.content.Context;
+
+import java.io.IOException;
 
 /**
  * An implementation of the state machine for the stopwatch.
@@ -63,9 +71,14 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
     @Override public void actionReset()      { timeModel.resetRuntime(); actionUpdateView(); }
     @Override public void actionStart()      { clockModel.start(); }
     @Override public void actionStop()       { clockModel.stop(); }
-   // @Override public void actionLap()        { timeModel.setLaptime(); }
+
+    // @Override public void actionLap()        { timeModel.setLaptime(); }
     @Override public void actionInc()        { timeModel.incRuntime(); actionUpdateView(); }
     @Override public void actionDec()        { timeModel.decRuntime(); actionUpdateView();}
     @Override public void actionUpdateView() { state.updateView(); }
     public int getRuntime()                  { return timeModel.getRuntime();}
+
+    public void playNotification()             {listener.alarmSound();}
+
+
 }

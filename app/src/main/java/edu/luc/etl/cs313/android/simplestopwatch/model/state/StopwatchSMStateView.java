@@ -29,4 +29,6 @@ interface StopwatchSMStateView {
     void updateUIRuntime();
     //void updateUILaptime();
     int getRuntime();
+
+    void playNotification();
 }
