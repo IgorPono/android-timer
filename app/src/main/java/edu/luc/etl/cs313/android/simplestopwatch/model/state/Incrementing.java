@@ -13,7 +13,7 @@ class Incrementing implements StopwatchState {
     private final StopwatchSMStateView sm;
 
     @Override
-    public void onStartStop() {
+    public void onStartStop() { //button press increments the timer
         sm.actionInc();
         counter = 0;
     }
@@ -23,9 +23,14 @@ class Incrementing implements StopwatchState {
     @Override
     public void onTick() {
         counter++;
-        if (counter >= 3){
+        if (sm.getRuntime() >= 99) { //if the timer exceeds 99 seconds a notification is played and the countdown starts
+            sm.playNotification();
             sm.toCountdownState();
         }
+        if (counter >= 3){ // if the timer isn't incremented for three seconds the countdown starts
+            sm.toCountdownState();
+        }
+
     }
 
     @Override

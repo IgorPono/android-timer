@@ -11,14 +11,14 @@ class InitialState implements StopwatchState {
     private final StopwatchSMStateView sm;
 
     @Override
-    public void onStartStop() {
+    public void onStartStop() { // button press initializes the program
         sm.actionStart();
-        sm.actionInc();
-        sm.toIncrementingState();
+        sm.actionInc(); //increments the runtime once
+        sm.toIncrementingState(); //goes to incrementing state
     }
 
     @Override
-    public void onTick() {
+    public void onTick() { //Nothing occurs on tick on initial state
         throw new UnsupportedOperationException("onTick");
     }
 

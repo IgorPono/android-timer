@@ -74,7 +74,7 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
 
     // @Override public void actionLap()        { timeModel.setLaptime(); }
     @Override public void actionInc()        { timeModel.incRuntime(); actionUpdateView(); }
-    @Override public void actionDec()        { timeModel.decRuntime(); actionUpdateView();}
+    @Override public void actionDec()        { timeModel.decRuntime(); actionUpdateView();} // implemented through the interface
     @Override public void actionUpdateView() { state.updateView(); }
     public int getRuntime()                  { return timeModel.getRuntime();}
 

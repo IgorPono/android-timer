@@ -19,18 +19,14 @@ class AlarmState implements StopwatchState {
     private final StopwatchSMStateView sm;
 
     @Override
-    public void onStartStop() {
-        sm.actionStop();
+    public void onStartStop() { //on button press
+        sm.actionStop(); // resets counter, goes back to initial state
         sm.actionInit();
     }
 
     @Override
-    public void onTick() {
-        sm.playNotification();
-        //playDefaultNotification();
-        //sm.toAlarmState();
-        //play alarm on tick
-        //throw new UnsupportedOperationException("onTick");
+    public void onTick() { // every second
+        sm.playNotification(); // plays notification
     }
 
 

@@ -11,17 +11,17 @@ class Countdown implements StopwatchState {
     private final StopwatchSMStateView sm;
 
     @Override
-    public void onStartStop() {
+    public void onStartStop() { //goes to the initial state if the button is pressed
         sm.actionStop();
         sm.actionInit();
     }
 
 
     @Override
-    public void onTick() {
+    public void onTick() { //on second
         sm.actionDec();
-        if(sm.getRuntime() <= 0){
-            sm.toAlarmState();
+        if(sm.getRuntime() <= 0){ //checks if the runtime is 0
+            sm.toAlarmState(); //goes to the alarm state if the timer runs out
         }
     }
 

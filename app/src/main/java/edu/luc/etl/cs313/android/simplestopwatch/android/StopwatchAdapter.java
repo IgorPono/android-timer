@@ -73,8 +73,7 @@ public class StopwatchAdapter extends Activity implements StopwatchModelListener
             final TextView tvS = findViewById(R.id.seconds);
             //final TextView tvM = findViewById(R.id.minutes);
             final var locale = Locale.getDefault();
-            tvS.setText(String.format(locale,"%02d", time % Constants.SEC_PER_MIN));
-            //tvM.setText(String.format(locale,"%02d", time / Constants.SEC_PER_MIN));
+            tvS.setText(String.format(locale,"%02d", time));
         });
     }
 
